@@ -48,7 +48,7 @@ int main()
             Love=(n2/n1)*100.0;
         else
             Love=(n1/n2)*100.0;
-        printf("%.2f %%\n", p1, p2, Love);
+        printf("%.2f %%\n", Love);
    }
    return 0;
 }
