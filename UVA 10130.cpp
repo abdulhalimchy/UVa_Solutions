@@ -38,9 +38,7 @@ int main()
             scanf("%d", &capacity);
             sum+=max_value();
         }
-
         printf("%d\n", sum);
     }
-
     return 0;
 }
