@@ -7,7 +7,7 @@ int make(int i, int curAmount)
 {
     if(i>5)
     {
-        if(amountTomake==curAmount)
+        if(curAmount==0)
             return 1;
         else
             return 0;
@@ -15,8 +15,8 @@ int make(int i, int curAmount)
     if(dp[i][curAmount]!=-1)
         return dp[i][curAmount];
     int ret1=0, ret2=0;
-    if(curAmount+coins[i]<=amountTomake)
-        ret1=make(i, curAmount+coins[i]);
+    if(curAmount-coins[i]>=0)
+        ret1=make(i, curAmount-coins[i]);
     ret2=make(i+1, curAmount);
     return dp[i][curAmount]= ret1+ret2;
 }
@@ -24,10 +24,10 @@ int make(int i, int curAmount)
 int main()
 {
 
+    memset(dp, -1, sizeof(dp));
     while(scanf("%d", &amountTomake)==1)
     {
-        memset(dp, -1, sizeof(dp));
-        printf("%d\n",make(1, 0));
+        printf("%d\n",make(1, amountTomake));
     }
     return 0;
 }
